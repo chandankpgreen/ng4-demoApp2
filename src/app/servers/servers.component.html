@@ -6,7 +6,10 @@
 <app-server></app-server>
 <app-server></app-server>
 {{serverCreationStatus}}
-
+<p *ngIf="serverCreated else noServer">A server was created with name {{serverName}}</p>
+<ng-template #noServer>
+    <p>no Server was created!</p>
+</ng-template>
 <p>-------------------------------------------------</p>
 
 <input type="text" [(ngModel)]="serverName" >

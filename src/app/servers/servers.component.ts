@@ -14,8 +14,9 @@ export class ServersComponent implements OnInit {
   serverRadio: any;
   serverSelect: any;
   userName: string;
+  serverCreated: boolean = false;
   constructor() {
-
+    this.userName = "";
     setTimeout(() => {
       this.allowNewServer = true;
     }, 2000);
@@ -25,6 +26,7 @@ export class ServersComponent implements OnInit {
   }
 
   onServerCreate() {
+    this.serverCreated = true;
     this.serverCreationStatus = "A server was created";
   }
 
