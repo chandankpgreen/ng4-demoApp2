@@ -1,0 +1,48 @@
+<input type="text" (input)="onTextChange($event)"/>
+{{serverName}}
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onServerCreate()" >Add Server</button>
+{{allowNewServer}}
+<!-- <button class="btn btn-primary" disabled=!allowNewServer>Add Server</button> -->
+<app-server></app-server>
+<app-server></app-server>
+{{serverCreationStatus}}
+
+<p>-------------------------------------------------</p>
+
+<input type="text" [(ngModel)]="serverName" >
+<br/>
+<input type="checkbox" [(ngModel)]="serverBool">
+{{serverBool}}
+<br/>
+<input name="group1" type="radio" [(ngModel)]="serverRadio"/>Radio 1
+<input name="group1" type="radio" [(ngModel)]="serverRadio"/>Radio 2
+<input name="group1" type="radio" [(ngModel)]="serverRadio"/>Radio 3
+{{serverRadio}}
+<br/>
+<select name="mySelect"  [(ngModel)]="serverSelect">
+    <option value="One">One</option>
+    <option value="Two">Two</option>
+    <option value="Three">Three</option>
+</select>
+{{serverSelect}}
+
+<p>-------------------------------------------------</p>
+<input type="text" [(ngModel)]="userName" />
+{{userName}}
+<button class="btn btn-primary" (click)="resetUserName()" [disabled]="userName.length ==0">Reset UserName</button>
+<p>-------------------------------------------------</p>
+<div>  
+    <div class="radio">  
+      <label><input type="radio" [(ngModel)]="prop" name="test" value="A">A</label>  
+    </div>  
+    <div>  
+      <label><input type="radio" [(ngModel)]="prop" name="test" value="B">B</label>
+    </div>  
+    <div>  
+      <label><input type="radio" [(ngModel)]="prop" name="test" value="C">C</label>  
+    </div>  
+  </div>
+  <div *ngIf="prop === 'A'">A</div>
+  <div *ngIf="prop === 'B'">B</div>
+  <div *ngIf="prop === 'C'">C</div>
+

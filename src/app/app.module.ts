@@ -4,15 +4,22 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { WarningAlertComponent } from './warning-Alert/warningAlert.component';
 import { SuccessAlertComponent } from './success-Alert/successAlert.component';
+import { ServerComponent } from './server/server.component';
+import { ServersComponent } from './servers/servers.component';
+import {FormsModule } from '@angular/forms'
+
 
 @NgModule({
   declarations: [
     AppComponent,
     WarningAlertComponent,
-    SuccessAlertComponent
+    SuccessAlertComponent,
+    ServerComponent,
+    ServersComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
