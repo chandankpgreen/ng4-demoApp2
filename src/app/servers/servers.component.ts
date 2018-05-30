@@ -15,6 +15,9 @@ export class ServersComponent implements OnInit {
   serverSelect: any;
   userName: string;
   serverCreated: boolean = false;
+  servers = ['server1', 'server2'];
+  clickLogs = [];
+  showParagraph: boolean = false;
   constructor() {
     this.userName = "";
     setTimeout(() => {
@@ -25,7 +28,9 @@ export class ServersComponent implements OnInit {
   ngOnInit() {
   }
 
-  onServerCreate() {
+  onServerCreate(event: Event) {
+    let serverName = (<HTMLInputElement>event.target).value;
+    this.servers.push(serverName)
     this.serverCreated = true;
     this.serverCreationStatus = "A server was created";
   }
@@ -37,5 +42,8 @@ export class ServersComponent implements OnInit {
   resetUserName() {
     this.userName = "";
   }
-
+  toggleParagraphDisplay() {
+    this.showParagraph = !this.showParagraph;
+    this.clickLogs.push(Date.now());
+  }
 }

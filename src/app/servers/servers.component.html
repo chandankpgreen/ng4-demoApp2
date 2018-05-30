@@ -1,10 +1,10 @@
 <input type="text" (input)="onTextChange($event)"/>
 {{serverName}}
-<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onServerCreate()" >Add Server</button>
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onServerCreate($event)" >Add Server</button>
 {{allowNewServer}}
 <!-- <button class="btn btn-primary" disabled=!allowNewServer>Add Server</button> -->
-<app-server></app-server>
-<app-server></app-server>
+<!-- <app-server></app-server>
+<app-server></app-server> -->
 {{serverCreationStatus}}
 <p *ngIf="serverCreated else noServer">A server was created with name {{serverName}}</p>
 <ng-template #noServer>
@@ -48,4 +48,15 @@
   <div *ngIf="prop === 'A'">A</div>
   <div *ngIf="prop === 'B'">B</div>
   <div *ngIf="prop === 'C'">C</div>
+  <p>-------------------------------------------------</p>
 
+<app-server *ngFor="let server of servers"></app-server>
+
+<p>-------------------------------------------------</p>
+
+<button class="btn btn-primary" (click)="toggleParagraphDisplay()">Display Details</button>
+<p [ngStyle]="{'display': showParagraph ?'block':'none'}">Here is a demo paragraph</p>
+<ul>
+  <li *ngFor="let clickLog of clickLogs" [ngClass]="{'white-color' :clickLogs.indexOf(clickLog) > 3}" 
+    [ngStyle] = "{'background-color':(clickLogs.indexOf(clickLog) > 3)?'blue':'none'}">{{clickLog}}</li>
+</ul>
